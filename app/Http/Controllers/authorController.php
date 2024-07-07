@@ -15,11 +15,4 @@ class authorController extends Controller
         ]));
     }
 
-    // validate
-    // protected function validateRequest(){
-    //     return request()->validate([
-    //         "name"=> "required",
-    //         "dob"=>"required",
-    //     ]);
-    // }
 }

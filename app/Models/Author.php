@@ -9,8 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 class Author extends Model
 {
     use HasFactory;
-
-    // protected $fillable = ["name","dob"]; 
     protected $guarded = [];
 
     protected $dates = ['dob'];
@@ -19,4 +17,5 @@ class Author extends Model
     {
         $this->attributes['dob'] = Carbon::parse($dob);
     }
-}
+    
+} 
