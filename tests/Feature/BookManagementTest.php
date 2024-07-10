@@ -51,18 +51,14 @@ class BookManagementTest extends TestCase
     /** @test */
     public function a_book_can_be_updated()
     {
-        // Créer un livre initial
         $this->post('/books' , $this->data());
-
         $book = Book::first();
 
-        // Mettre à jour le livre avec l'ID correct
         $response = $this->patch( $book->path() ,  [
             'title' => 'New Title',
             'author_id' => 'New Author',
         ]);
-
-        // Vérifier que le livre a été mis à jour correctement
+        
         $this->assertEquals('New Title', Book::first()->title);
         $this->assertEquals(2, Book::first()->author_id);
 
@@ -89,10 +85,7 @@ class BookManagementTest extends TestCase
     
     /** @test */
     public function a_new_author_is_automatically_added()
-    { 
-        $this->withoutExceptionHandling();
-
-        // Créer un livre initial
+    {
         $this->post('/books' , $this->data());
 
         $book = Book::first();
