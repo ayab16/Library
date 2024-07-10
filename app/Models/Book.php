@@ -36,17 +36,17 @@ class Book extends Model
 
     public function checkin($user)
     {
-        $rservation = $this->reservation()->where('user_id', $user->id)
+        $reservation = $this->reservation()->where('user_id', $user->id)
                     ->whereNotNull('checked_out_at') 
                     ->whereNull('checked_in_at')
                     ->first();
 
-        if (is_null($rservation)) 
+        if (is_null($reservation)) 
         {
             throw new \Exception();            
         }
         
-        $rservation->update([
+        $reservation->update([
             'checked_in_at' => now(),
         ]);
     }
